@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>火环专营店-小米手环官方授权店</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+  
+  <!-- Tailwind配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6700',
+            secondary: '#F5F5F5',
+            dark: '#333333',
+            light: '#FFFFFF',
+            muted: '#B0B0B0',
+            'primary-dark': '#E65100'
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.03);
+      }
+      .card-shadow {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      }
+    }
+  </style>
+</head>
+<body class="font-inter bg-gray-50 text-dark">
+  <!-- 顶部通知栏 -->
+  <div class="bg-primary text-white text-center py-1 text-sm">
+    <p>🔥限时优惠：全场满299减50，小米手环8 Pro首发！</p>
+  </div>
+
+  <!-- 导航栏 -->
+  <header class="sticky top-0 z-50 bg-white shadow-sm transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+          <img src="./logo.png" alt="火环专营店LOGO" class="h-8 mr-2">  <!-- 新增LOGO -->
+          <div class="text-primary text-2xl font-bold">火环专营店</div>
+          <span class="ml-2 text-xs bg-primary text-white px-1 rounded">官方授权</span>
+        </a>
+        
+        <!-- 搜索框 - 中等屏幕以上显示 -->
+        <div class="hidden md:flex items-center flex-1 max-w-xl mx-8">
+          <div class="relative w-full">
+            <input type="text" placeholder="搜索小米手环、配件..." class="w-full py-2 pl-4 pr-10 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all">
+            <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+        
+        <!-- 导航链接 - 中等屏幕以上显示 -->
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="#" class="font-medium hover:text-primary transition-colors">首页</a>
+          <div class="relative group">
+            <a href="#" class="font-medium hover:text-primary transition-colors flex items-center">
+              手环系列
+              <i class="fa fa-chevron-down ml-1 text-xs"></i>
+            </a>
+            <div class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right">
+              <div class="py-1" role="menu">
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">小米手环8系列</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">小米手环7系列</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">小米手环9系列</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Redmi手环系列</a>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="font-medium hover:text-primary transition-colors">配件</a>
+          <a href="#" class="font-medium hover:text-primary transition-colors">品牌故事</a>
+        </nav>
+        
+        <!-- 用户工具栏 -->
+        <div class="flex items-center space-x-4">
+          <button class="md:hidden text-gray-600 hover:text-primary transition-colors" id="mobile-menu-button">
+            <i class="fa fa-bars text-xl"></i>
+          </button>
+          <button class="hidden md:block text-gray-600 hover:text-primary transition-colors relative">
+            <i class="fa fa-search text-xl"></i>
+          </button>
+          <a href="#" class="text-gray-600 hover:text-primary transition-colors relative">
+            <i class="fa fa-user text-xl"></i>
+          </a>
+          <a href="#" class="text-gray-600 hover:text-primary transition-colors relative">
+            <i class="fa fa-shopping-cart text-xl"></i>
+            <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 移动端菜单 -->
+    <div class="md:hidden h-0 overflow-hidden transition-all duration-300" id="mobile-menu">
+      <div class="px-4 pt-2 pb-4 space-y-3">
+        <div class="relative">
+          <input type="text" placeholder="搜索小米手环、配件..." class="w-full py-2 pl-4 pr-10 rounded-full border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+          <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        <a href="#" class="block py-2 font-medium hover:text-primary">首页</a>
+        <div class="border-b border-gray-100"></div>
+        <div class="py-2">
+          <a href="#" class="block font-medium hover:text-primary flex justify-between items-center">
+            手环系列
+            <i class="fa fa-chevron-down text-xs"></i>
+          </a>
+          <div class="mt-2 ml-4 space-y-2">
+            <a href="#" class="block text-sm hover:text-primary">小米手环8系列</a>
+            <a href="#" class="block text-sm hover:text-primary">小米手环7系列</a>
+            <a href="#" class="block text-sm hover:text-primary">小米手环9系列</a>
+            <a href="#" class="block text-sm hover:text-primary">Redmi手环系列</a>
+          </div>
+        </div>
+        <div class="border-b border-gray-100"></div>
+        <a href="#" class="block py-2 font-medium hover:text-primary">配件</a>
+        <a href="#" class="block py-2 font-medium hover:text-primary">优惠活动</a>
+        <a href="#" class="block py-2 font-medium hover:text-primary">品牌故事</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 轮播图 -->
+    <section class="relative bg-gray-100 overflow-hidden">
+      <div class="container mx-auto px-4 py-6">
+        <div class="relative rounded-xl overflow-hidden shadow-lg">
+          <div class="flex transition-transform duration-500 ease-in-out" id="carousel">
+            <div class="min-w-full relative">
+              <img src="轮播1.jpg" alt="小米手环8 Pro首发" class="w-full h-[400px] md:h-[500px] object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+                <div class="px-8 md:px-16 max-w-xl">
+                  <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-shadow">小米手环8 Pro</h2>
+                  <p class="text-white/90 text-lg md:text-xl mb-6">全新升级AMOLED大屏，15天超长续航，专业健康监测</p>
+                  <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">立即抢购</a>
+                    <a href="#" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">了解详情</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="min-w-full relative">
+              <img src="轮播2.jpg" alt="小米手环8系列" class="w-full h-[400px] md:h-[500px] object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+                <div class="px-8 md:px-16 max-w-xl">
+                  <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-shadow">小米手环8系列</h2>
+                  <p class="text-white/90 text-lg md:text-xl mb-6">轻巧设计，117种运动模式，全方位健康守护</p>
+                  <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">立即抢购</a>
+                    <a href="#" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">了解详情</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="min-w-full relative">
+              <img src="轮播3.jpg" alt="限时优惠活动" class="w-full h-[400px] md:h-[500px] object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent flex items-center">
+                <div class="px-8 md:px-16 max-w-xl">
+                  <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-shadow">618狂欢盛宴</h2>
+                  <div class="flex flex-wrap gap-4">
+                    <a href="#" class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">查看活动</a>
+                    <a href="#" class="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white px-6 py-3 rounded-lg font-medium transition-all transform hover:-translate-y-1 hover:shadow-lg">优惠券领取</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 轮播控制按钮 -->
+          <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all" id="prev-slide">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all" id="next-slide">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+          <!-- 轮播指示器 -->
+          <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all carousel-indicator active" data-index="0"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all carousel-indicator" data-index="1"></button>
+            <button class="w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-all carousel-indicator" data-index="2"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold mb-8 text-center">热门分类</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-watch text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">小米手环8</span>
+          </a>
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-heartbeat text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">健康监测</span>
+          </a>
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-dumbbell text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">运动模式</span>
+          </a>
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-battery-full text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">长续航</span>
+          </a>
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-mobile text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">智能通知</span>
+          </a>
+          <a href="#" class="group flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all hover-scale">
+            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+              <i class="fa fa-shopping-bag text-primary text-2xl"></i>
+            </div>
+            <span class="font-medium">全部商品</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 新品上市 -->
+    <section class="py-10 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">新品上市</h2>
+          <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+            查看更多 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- 产品卡片1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="8.jpeg" alt="小米手环8" class="w-full h-64 object-cover">
+              <div class="absolute top-3 left-3">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">新品</span>
+              </div>
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2">小米手环8 Pro</h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">1.74英寸AMOLED彩屏，血氧监测，15天续航，50米防水</p>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-primary font-bold text-xl">¥399</span>
+                  <span class="text-gray-400 text-sm line-through ml-2">¥499</span>
+                </div>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-lg font-medium transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品卡片2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="8Pro.jpg" alt="小米手环8 Pro" class="w-full h-64 object-cover">
+              <div class="absolute top-3 left-3">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">新品</span>
+              </div>
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2">小米手环8</h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">1.62英寸彩屏，117种运动模式，心率监测，睡眠分析</p>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-primary font-bold text-xl">¥239</span>
+                  <span class="text-gray-400 text-sm line-through ml-2">¥279</span>
+                </div>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-lg font-medium transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品卡片3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="9.webp" alt="小米手环9" class="w-full h-64 object-cover">
+              <div class="absolute top-3 left-3">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">新品</span>
+              </div>
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2">小米手环9</h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">1.62英寸彩屏，97种运动模式，轻巧设计，5天续航</p>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-primary font-bold text-xl">¥199</span>
+                  <span class="text-gray-400 text-sm line-through ml-2">¥229</span>
+                </div>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-lg font-medium transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 产品卡片4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="9 Prob.jpg" alt="小米手环9 Pro" class="w-full h-64 object-cover">
+              <div class="absolute top-3 left-3">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">限量版</span>
+              </div>
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-4">
+              <h3 class="font-bold text-lg mb-2">小米手环9 Pro</h3>
+              <p class="text-gray-600 text-sm mb-3 line-clamp-2">1.74英寸AMOLED彩屏，金属边框，NFC功能，15天续航</p>
+              <div class="flex justify-between items-center">
+                <div>
+                  <span class="text-primary font-bold text-xl">¥499</span>
+                  <span class="text-gray-400 text-sm line-through ml-2">¥599</span>
+                </div>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-3 py-2 rounded-lg font-medium transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 促销活动 -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">限时特惠</h2>
+          <div class="flex items-center text-sm">
+            <span class="mr-2">剩余时间：</span>
+            <div class="flex space-x-1" id="countdown">
+              <span class="bg-dark text-white px-2 py-1 rounded">12</span>
+              <span class="text-dark">:</span>
+              <span class="bg-dark text-white px-2 py-1 rounded">34</span>
+              <span class="text-dark">:</span>
+              <span class="bg-dark text-white px-2 py-1 rounded">56</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- 促销横幅1 -->
+          <div class="relative rounded-xl overflow-hidden hover-scale">
+            <img src="./7.png" alt="小米手环7系列特惠" class="w-full h-48 md:h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 flex flex-col justify-center p-6 md:p-8">
+              <h3 class="text-white text-xl md:text-2xl font-bold mb-2">小米手环7系列</h3>
+              <p class="text-white/90 text-sm md:text-base mb-4">限时特惠，立减50元，赠原装腕带</p>
+              <div class="flex items-center">
+                <span class="text-primary text-2xl font-bold">¥179</span>
+                <span class="text-white/80 text-sm line-through ml-2">¥229</span>
+                <a href="#" class="ml-auto bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  立即抢购
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 促销横幅2 -->
+          <div class="relative rounded-xl overflow-hidden hover-scale">
+            <img src="./Redmi.jpg" alt="Redmi手环2" class="w-full h-48 md:h-64 object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/20 flex flex-col justify-center p-6 md:p-8">
+              <h3 class="text-white text-xl md:text-2xl font-bold mb-2">Redmi手环2</h3>
+              <p class="text-white/90 text-sm md:text-base mb-4">超值性价比，智能健康助手</p>
+              <div class="flex items-center">
+                <span class="text-primary text-2xl font-bold">¥99</span>
+                <span class="text-white/80 text-sm line-through ml-2">¥129</span>
+                <a href="#" class="ml-auto bg-primary hover:bg-primary-dark text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+                  立即抢购
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 配件专区 -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold">配件专区</h2>
+          <a href="#" class="text-primary hover:text-primary-dark font-medium flex items-center">
+            查看更多 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <!-- 配件卡片1 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="./腕带.jpg" alt="小米手环腕带" class="w-full h-48 object-cover">
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-3">
+              <h3 class="font-medium text-sm mb-1">小米手环通用腕带</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">¥29</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-2 py-1 rounded-lg text-xs transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 配件卡片2 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="./钢化膜.webp" alt="小米手环保护膜" class="w-full h-48 object-cover">
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-3">
+              <h3 class="font-medium text-sm mb-1">高清钢化膜套装</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">¥19</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-2 py-1 rounded-lg text-xs transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 配件卡片3 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="./磁吸充电.webp" alt="小米手环充电器" class="w-full h-48 object-cover">
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-3">
+              <h3 class="font-medium text-sm mb-1">磁吸式充电器</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">¥39</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-2 py-1 rounded-lg text-xs transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- 配件卡片4 -->
+          <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all hover-scale">
+            <div class="relative">
+              <img src="./全包保护壳.webp" alt="小米手环保护壳" class="w-full h-48 object-cover">
+              <button class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center text-gray-500 hover:text-primary transition-colors">
+                <i class="fa fa-heart-o"></i>
+              </button>
+            </div>
+            <div class="p-3">
+              <h3 class="font-medium text-sm mb-1">全包保护壳</h3>
+              <div class="flex justify-between items-center">
+                <span class="text-primary font-bold">¥25</span>
+                <button class="bg-primary/10 hover:bg-primary/20 text-primary px-2 py-1 rounded-lg text-xs transition-colors">
+                  <i class="fa fa-shopping-cart mr-1"></i> 加入购物车
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 用户评价 -->
+    <section class="py-10 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-2xl font-bold text-center mb-8">用户评价</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- 评价卡片1 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/64/64?random=18" alt="用户头像" class="w-12 h-12 rounded-full object-cover">
+              <div class="ml-4">
+                <h4 class="font-medium">张小明</h4>
+                <div class="flex text-yellow-400 text-sm mt-1">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">"小米手环8 Pro真的很不错，屏幕清晰，功能强大，续航也很给力，用了一周还有50%的电。运动模式很丰富，跑步、游泳都很准确。"</p>
+            <div class="flex gap-2 mt-4">
+              <img src="./comment.webp" alt="用户晒图" class="w-16 h-16 rounded object-cover">
+            </div>
+            <div class="mt-4 text-xs text-gray-400">2025年5月15日</div>
+          </div>
+          
+          <!-- 评价卡片2 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/64/64?random=21" alt="用户头像" class="w-12 h-12 rounded-full object-cover">
+              <div class="ml-4">
+                <h4 class="font-medium">李小红</h4>
+                <div class="flex text-yellow-400 text-sm mt-1">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-half-o"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">"这是我买的第三个小米手环了，性价比一直很高。这次买的小米手环8功能更强大了，睡眠监测很准确，还能监测压力和血氧，很满意。"</p>
+            <div class="mt-4 text-xs text-gray-400">2025年5月18日</div>
+          </div>
+          
+          <!-- 评价卡片3 -->
+          <div class="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center mb-4">
+              <img src="https://picsum.photos/64/64?random=22" alt="用户头像" class="w-12 h-12 rounded-full object-cover">
+              <div class="ml-4">
+                <h4 class="font-medium">王大力</h4>
+                <div class="flex text-yellow-400 text-sm mt-1">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star-o"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 text-sm mb-3">"小米手环8活力版很适合运动爱好者，轻巧舒适，运动模式也很多，心率监测很准确。唯一不足的是续航比宣传的短一些，大概4天左右就得充电。"</p>
+            <div class="mt-4 text-xs text-gray-400">2025年5月20日</div>
+          </div>
+        </div>
+        
+        <div class="text-center mt-8">
+          <a href="#" class="inline-flex items-center text-primary hover:text-primary-dark font-medium">
+            查看更多评价 <i class="fa fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 品牌故事 -->
+    <section class="py-10 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="md:w-1/2">
+            <h2 class="text-2xl font-bold mb-4">火环专营店 - 小米官方授权店</h2>
+            <p class="text-gray-600 mb-4">火环专营店成立于2025年，是小米官方授权的正规销售渠道，专注于为用户提供高品质的小米智能穿戴设备。</p>
+            <p class="text-gray-600 mb-6">我们承诺所有产品均为正品行货，支持全国联保，并提供专业的售后服务。多年来，我们以优质的产品和服务赢得了广大消费者的信任和好评。</p>
+            <div class="flex flex-wrap gap-4">
+              <div class="flex items-center">
+                <i class="fa fa-check-circle text-green-500 text-xl mr-2"></i>
+                <span class="text-gray-700">正品保障</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-truck text-blue-500 text-xl mr-2"></i>
+                <span class="text-gray-700">顺丰速运</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-shield text-primary text-xl mr-2"></i>
+                <span class="text-gray-700">7天无理由退换</span>
+              </div>
+              <div class="flex items-center">
+                <i class="fa fa-headphones text-purple-500 text-xl mr-2"></i>
+                <span class="text-gray-700">专业客服</span>
+              </div>
+            </div>
+          </div>
+          <div class="md:w-1/2 rounded-xl overflow-hidden shadow-lg hover-scale">
+            <img src="./logo.png" alt="品牌故事" class="w-full h-auto">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 订阅通知 -->
+    <section class="py-12 bg-primary/5">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-2">订阅新品通知</h2>
+        <p class="text-gray-600 mb-6 max-w-2xl mx-auto">订阅我们的新品通知，第一时间获取小米手环最新产品信息和独家优惠</p>
+        <div class="flex flex-col sm:flex-row justify-center max-w-md mx-auto gap-3">
+          <input type="email" placeholder="请输入您的邮箱" class="flex-1 px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary">
+          <button class="bg-primary hover:bg-primary-dark text-white px-6 py-3 rounded-lg font-medium transition-colors">
+            立即订阅
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="bg-dark text-white pt-12 pb-6">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <h3 class="text-lg font-bold mb-4">火环专营店</h3>
+          <p class="text-gray-400 mb-4">小米官方授权店，专注智能穿戴设备</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-weibo"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-wechat"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-white transition-colors">
+              <i class="fa fa-youtube-play"></i>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">快速链接</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">首页</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">全部商品</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">新品上市</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">限时特惠</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">品牌故事</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">客户服务</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">联系我们</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">常见问题</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">配送说明</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">退换政策</a></li>
+            <li><a href="#" class="text-gray-400 hover:text-white transition-colors">隐私政策</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold mb-4">联系方式</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <i class="fa fa-map-marker mt-1 mr-3 text-gray-400"></i>
+              <span class="text-gray-400">北京市海淀区中关村科技园区</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-phone mr-3 text-gray-400"></i>
+              <span class="text-gray-400">400-123-4567</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-envelope mr-3 text-gray-400"></i>
+              <span class="text-gray-400">service@huohuan.com</span>
+            </li>
+            <li class="flex items-center">
+              <i class="fa fa-clock-o mr-3 text-gray-400"></i>
+              <span class="text-gray-400">周一至周日 9:00-22:00</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 火环专营店. 保留所有权利.</p>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">使用条款</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">隐私政策</a>
+            <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">网站地图</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 回到顶部按钮 -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary hover:bg-primary-dark text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-all transform hover:-translate-y-1 opacity-0 invisible">
+    <i class="fa fa-arrow-up"></i>
+  </button>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.add('shadow-md');
+        navbar.classList.add('bg-white/95');
+        navbar.classList.add('backdrop-blur-sm');
+      } else {
+        navbar.classList.remove('shadow-md');
+        navbar.classList.remove('bg-white/95');
+        navbar.classList.remove('backdrop-blur-sm');
+      }
+    });
+    
+    // 移动端菜单
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      if (mobileMenu.classList.contains('h-0')) {
+        mobileMenu.classList.remove('h-0');
+        mobileMenu.classList.add('h-auto');
+        mobileMenuButton.innerHTML = '<i class="fa fa-times text-xl"></i>';
+      } else {
+        mobileMenu.classList.add('h-0');
+        mobileMenu.classList.remove('h-auto');
+        mobileMenuButton.innerHTML = '<i class="fa fa-bars text-xl"></i>';
+      }
+    });
+    
+    // 轮播图
+    const carousel = document.getElementById('carousel');
+    const prevSlide = document.getElementById('prev-slide');
+    const nextSlide = document.getElementById('next-slide');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    let currentIndex = 0;
+    const slideCount = 3;
+    
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      indicators.forEach((indicator, index) => {
+        if (index === currentIndex) {
+          indicator.classList.add('bg-white');
+          indicator.classList.remove('bg-white/50');
+        } else {
+          indicator.classList.remove('bg-white');
+          indicator.classList.add('bg-white/50');
+        }
+      });
+    }
+    
+    prevSlide.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+      updateCarousel();
+    });
+    
+    nextSlide.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      updateCarousel();
+    });
+    
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        currentIndex = index;
+        updateCarousel();
+      });
+    });
+    
+    // 自动轮播
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % slideCount;
+      updateCarousel();
+    }, 5000);
+    
+    // 回到顶部按钮
+    const backToTopButton = document.getElementById('back-to-top');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.remove('opacity-0', 'invisible');
+        backToTopButton.classList.add('opacity-100', 'visible');
+      } else {
+        backToTopButton.classList.add('opacity-0', 'invisible');
+        backToTopButton.classList.remove('opacity-100', 'visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+    
+    // 倒计时功能
+    function updateCountdown() {
+      // 这里简单模拟倒计时，实际项目中应使用真实时间计算
+      const hours = Math.floor(Math.random() * 24);
+      const minutes = Math.floor(Math.random() * 60);
+      const seconds = Math.floor(Math.random() * 60);
+      
+      const countdownElement = document.getElementById('countdown');
+      countdownElement.innerHTML = `
+        <span class="bg-dark text-white px-2 py-1 rounded">${hours.toString().padStart(2, '0')}</span>
+        <span class="text-dark">:</span>
+        <span class="bg-dark text-white px-2 py-1 rounded">${minutes.toString().padStart(2, '0')}</span>
+        <span class="text-dark">:</span>
+        <span class="bg-dark text-white px-2 py-1 rounded">${seconds.toString().padStart(2, '0')}</span>
+      `;
+    }
+    
+    // 每秒更新倒计时
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+</body>
+</html>
+    

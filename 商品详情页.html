@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小米手环9 Pro - 官方网站</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        secondary: '#00A862',
+                        neutral: {
+                            100: '#F5F5F5',
+                            200: '#E0E0E0',
+                            300: '#CCCCCC',
+                            400: '#999999',
+                            500: '#666666',
+                            600: '#333333',
+                            700: '#222222',
+                            800: '#111111',
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                },
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-custom {
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+        }
+    </style>
+</head>
+<body class="font-inter bg-neutral-100 text-neutral-700 min-h-screen flex flex-col">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <!-- 替换文字并添加logo -->
+                <a href="#" class="flex items-center text-2xl font-bold text-primary">
+                    <img src="./logo.png" alt="火环专营店logo" class="h-8 w-auto mr-2">
+                    火环专营店
+                </a>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#" class="font-medium hover:text-primary transition-colors">首页</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">手机</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">智能硬件</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">生态链</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">服务</a>
+                    <a href="#" class="font-medium hover:text-primary transition-colors">社区</a>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="relative hidden md:block">
+                    <input type="text" placeholder="搜索商品" class="w-64 py-2 px-4 pr-10 rounded-full border border-neutral-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary">
+                    <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-neutral-400 hover:text-primary">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                <a href="#" class="text-neutral-600 hover:text-primary transition-colors">
+                    <i class="fa fa-user"></i>
+                </a>
+                <a href="#" class="text-neutral-600 hover:text-primary transition-colors relative">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </a>
+                <button class="md:hidden text-neutral-600">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="container mx-auto px-4 py-3 text-sm text-neutral-500">
+        <a href="#" class="hover:text-primary">首页</a>
+        <span class="mx-2">/</span>
+        <a href="#" class="hover:text-primary">智能穿戴</a>
+        <span class="mx-2">/</span>
+        <a href="#" class="hover:text-primary">智能手环</a>
+        <span class="mx-2">/</span>
+        <span class="text-neutral-700">小米手环9 Pro</span>
+    </div>
+
+    <!-- 主要内容区域 -->
+    <main class="flex-grow">
+        <!-- 商品展示区 -->
+        <section class="container mx-auto px-4 py-6 bg-white rounded-lg shadow-sm mb-6">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- 商品图片区域 - 左上角 -->
+                <div class="w-full md:w-1/2">
+                    <div class="relative aspect-square rounded-lg overflow-hidden bg-neutral-100 mb-4">
+                        <!-- 主图区域，确保有id="main-image" -->
+                        <img id="main-image" src="./9 Prob.jpg" alt="小米手环9 Pro - 科技黑" class="w-full h-full object-contain transition-opacity duration-500">
+                        <span class="absolute top-4 left-4 bg-primary text-white text-sm px-3 py-1 rounded-full">新品</span>
+                    </div>
+                    <!-- 缩略图 -->
+                    <div class="flex space-x-3 overflow-x-auto pb-2">
+                        <div class="w-20 h-20 rounded-md overflow-hidden border-2 border-primary cursor-pointer" data-color="black" onclick="changeImage(this)">
+                            <img src="./9 Prob.jpg" alt="小米手环9 Pro - 科技黑" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-20 rounded-md overflow-hidden border-2 border-transparent hover:border-primary cursor-pointer" data-color="pink" onclick="changeImage(this)">
+                            <img src= "./9 Prop.jpg" alt="小米手环9 Pro - 少女粉" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-20 rounded-md overflow-hidden border-2 border-transparent hover:border-primary cursor-pointer" data-color="white" onclick="changeImage(this)">
+                            <img src="./9 Prow.jpg" alt="小米手环9 Pro - 清新白" class="w-full h-full object-cover">
+                        </div>
+                        <div class="w-20 h-20 rounded-md overflow-hidden border-2 border-transparent hover:border-primary cursor-pointer" data-color="cream" onclick="changeImage(this)">
+                            <img src="./9 Prornb.jpg" alt="小米手环9 Pro - 乳酪白" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between mt-4 text-sm text-neutral-500">
+                        <div class="flex items-center space-x-4">
+                            <span class="flex items-center"><i class="fa fa-share-alt mr-1"></i> 分享</span>
+                            <span class="flex items-center"><i class="fa fa-star-o mr-1"></i> 收藏</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="flex items-center mr-4"><i class="fa fa-check-circle text-secondary mr-1"></i> 正品保障</span>
+                            <span class="flex items-center"><i class="fa fa-truck mr-1"></i> 顺丰速运</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 商品信息区域 - 右上角 -->
+                <div class="w-full md:w-1/2">
+                    <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-neutral-800 mb-2">小米手环9 Pro</h1>
+                    <div class="text-orange-500 mb-4 flex items-center">
+                        <div class="flex">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <span class="ml-2">4.8 (2,543条评价)</span>
+                    </div>
+
+                    <!-- 价格区域 -->
+                    <div class="bg-neutral-50 rounded-lg p-4 mb-6">
+                        <div class="flex items-end mb-2">
+                            <span class="text-neutral-500 line-through mr-2">¥399</span>
+                            <span class="text-3xl font-bold text-primary">¥299</span>
+                            <span class="ml-2 bg-primary/10 text-primary text-sm px-2 py-1 rounded">限时优惠</span>
+                        </div>
+                        <div class="flex items-center text-sm mb-2">
+                            <span class="text-neutral-500 w-20">预估到手价</span>
+                            <span class="text-primary font-bold">¥289</span>
+                            <span class="text-neutral-500 ml-2">含限时优惠10元</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <span class="text-neutral-500 w-20">优惠</span>
+                            <div>
+                                <span class="inline-flex items-center bg-red-50 text-red-500 text-xs px-2 py-0.5 rounded mr-2 mb-1">
+                                    <i class="fa fa-tag mr-1"></i>满减
+                                </span>
+                                <span class="inline-flex items-center bg-blue-50 text-blue-500 text-xs px-2 py-0.5 rounded mr-2 mb-1">
+                                    <i class="fa fa-gift mr-1"></i>赠品
+                                </span>
+                                <span class="inline-flex items-center bg-green-50 text-green-500 text-xs px-2 py-0.5 rounded mb-1">
+                                    <i class="fa fa-ticket mr-1"></i>优惠券
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 服务保障 -->
+                    <div class="flex items-center text-sm mb-6">
+                        <span class="text-neutral-500 w-20">服务保障</span>
+                        <div class="flex flex-wrap gap-4">
+                            <span class="flex items-center"><i class="fa fa-shield text-secondary mr-1"></i> 7天无理由退换</span>
+                            <span class="flex items-center"><i class="fa fa-calendar-check-o text-secondary mr-1"></i> 1年官方保修</span>
+                            <span class="flex items-center"><i class="fa fa-truck text-secondary mr-1"></i> 顺丰/京东配送</span>
+                        </div>
+                    </div>
+
+                    <!-- 颜色选择 - 添加data-color属性与图片对应 -->
+                    <div class="mb-6">
+                        <div class="flex items-center text-sm mb-3">
+                            <span class="text-neutral-500 w-20">颜色</span>
+                            <div class="flex flex-wrap gap-3">
+                                <button class="flex items-center justify-center border-2 border-primary bg-white px-4 py-2 rounded-md text-sm focus:outline-none relative color-option" data-color="black" onclick="changeColor(this)">
+                                    科技黑
+                                    <span class="absolute -bottom-1 -right-1 bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+                                        <i class="fa fa-check"></i>
+                                    </span>
+                                </button>
+                                <button class="flex items-center justify-center border-2 border-neutral-200 hover:border-primary bg-white px-4 py-2 rounded-md text-sm focus:outline-none transition-colors color-option" data-color="pink" onclick="changeColor(this)">
+                                    少女粉
+                                </button>
+                                <button class="flex items-center justify-center border-2 border-neutral-200 hover:border-primary bg-white px-4 py-2 rounded-md text-sm focus:outline-none transition-colors color-option" data-color="white" onclick="changeColor(this)">
+                                    清新白
+                                </button>
+                                <button class="flex items-center justify-center border-2 border-neutral-200 hover:border-primary bg-white px-4 py-2 rounded-md text-sm focus:outline-none transition-colors color-option" data-color="cream" onclick="changeColor(this)">
+                                    乳酪白
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 数量选择 -->
+                    <div class="flex items-center text-sm mb-8">
+                        <span class="text-neutral-500 w-20">数量</span>
+                        <div class="flex border rounded-md">
+                            <button class="w-10 h-10 flex items-center justify-center border-r border-neutral-200 hover:bg-neutral-50">
+                                <i class="fa fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="w-16 h-10 text-center focus:outline-none">
+                            <button class="w-10 h-10 flex items-center justify-center border-l border-neutral-200 hover:bg-neutral-50">
+                                <i class="fa fa-plus"></i>
+                            </button>
+                        </div>
+                        <span class="ml-3 text-neutral-500">库存: 999+</span>
+                    </div>
+
+                    <!-- 购买按钮 -->
+                    <div class="flex gap-4">
+                        <button class="flex-1 bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-md text-lg font-medium transition-colors shadow-lg shadow-primary/20 flex items-center justify-center">
+                            <i class="fa fa-shopping-cart mr-2"></i> 加入购物车
+                        </button>
+                        <button class="flex-1 bg-white border-2 border-primary text-primary hover:bg-primary/5 py-3 px-6 rounded-md text-lg font-medium transition-colors flex items-center justify-center">
+                            <i class="fa fa-bolt mr-2"></i> 立即购买
+                        </button>
+                    </div>
+
+                    <!-- 其他服务 -->
+                    <div class="flex flex-wrap gap-4 mt-6 text-sm">
+                        <span class="flex items-center text-neutral-500">
+                            <i class="fa fa-headphones text-neutral-400 mr-1"></i> 客服咨询
+                        </span>
+                        <span class="flex items-center text-neutral-500">
+                            <i class="fa fa-file-text-o text-neutral-400 mr-1"></i> 规格参数
+                        </span>
+                        <span class="flex items-center text-neutral-500">
+                            <i class="fa fa-question-circle-o text-neutral-400 mr-1"></i> 常见问题
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 商品详情区域 - 页面下面 -->
+        <section class="container mx-auto px-4 mb-8">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+                <!-- 详情页标签页 -->
+                <div class="border-b border-neutral-200">
+                    <div class="flex flex-wrap">
+                        <button class="px-6 py-4 font-medium text-primary border-b-2 border-primary">商品详情</button>
+                        <button class="px-6 py-4 font-medium text-neutral-500 hover:text-neutral-700">规格参数</button>
+                        <button class="px-6 py-4 font-medium text-neutral-500 hover:text-neutral-700">用户评价 (2543)</button>
+                        <button class="px-6 py-4 font-medium text-neutral-500 hover:text-neutral-700">售后保障</button>
+                    </div>
+                </div>
+
+                <!-- 商品详情内容 -->
+                <div class="p-6">
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-4">小米手环9 Pro - 全面升级，体验再突破</h2>
+                        <p class="text-neutral-600 mb-4">小米手环9 Pro带来全新升级的健康监测系统、更大屏幕和更长续航，让你的运动和健康管理更加智能便捷。</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                            <div class="bg-neutral-50 rounded-lg p-5 text-center card-hover">
+                                <div class="text-4xl text-primary mb-3">
+                                    <i class="fa fa-heartbeat"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">全天候健康监测</h3>
+                                <p class="text-neutral-600">实时心率、血氧、睡眠监测，关注你的每一刻健康状态</p>
+                            </div>
+                            <div class="bg-neutral-50 rounded-lg p-5 text-center card-hover">
+                                <div class="text-4xl text-primary mb-3">
+                                    <i class="fa fa-tachometer"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">150+运动模式</h3>
+                                <p class="text-neutral-600">覆盖跑步、游泳、登山、骑行等多种运动场景，精准记录运动数据</p>
+                            </div>
+                            <div class="bg-neutral-50 rounded-lg p-5 text-center card-hover">
+                                <div class="text-4xl text-primary mb-3">
+                                    <i class="fa fa-battery-full"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">14天超长续航</h3>
+                                <p class="text-neutral-600">一次充电，持续使用两周，告别频繁充电烦恼</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 产品特性 -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-6">产品特性</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-mobile text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">1.74英寸AMOLED全面屏</h3>
+                                    <p class="text-neutral-600">更大显示区域，更高分辨率，带来更清晰的视觉体验，操作更加便捷</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-moon-o text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">深度睡眠监测</h3>
+                                    <p class="text-neutral-600">分析睡眠质量，提供专业睡眠建议，帮助你改善睡眠习惯</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-bell text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">智能通知提醒</h3>
+                                    <p class="text-neutral-600">接收微信、短信、电话等应用通知，重要信息不错过</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-tint text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">50米防水</h3>
+                                    <p class="text-neutral-600">支持游泳等水上运动，无需担心日常洗手、淋雨等场景</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-paint-brush text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">百变表盘</h3>
+                                    <p class="text-neutral-600">海量个性表盘任你选择，彰显你的独特风格</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-primary/10 rounded-full p-3 mr-4">
+                                    <i class="fa fa-bolt text-xl text-primary"></i>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold mb-2">快速充电</h3>
+                                    <p class="text-neutral-600">充电5分钟，使用一整天，方便快捷</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 产品详情图片 - 使用你提供的图片路径替换 -->
+                    <div class="grid grid-cols-1 gap-6 mb-8">
+                        <div class="rounded-lg overflow-hidden aspect-video bg-neutral-100">
+                            <img src="./详情页.jpg" alt="小米手环9 Pro详情" class="w-full h-full object-cover">
+                        </div>
+                        <div class="rounded-lg overflow-hidden aspect-video bg-neutral-100">
+                            <img src="./详情页2.png" alt="小米手环9 Pro展示" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+
+                    <!-- 规格参数表格 -->
+                    <div class="mb-8">
+                        <h2 class="text-2xl font-bold mb-6">规格参数</h2>
+                        <div class="overflow-x-auto">
+                            <table class="w-full border-collapse">
+                                <tbody>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500 w-1/3">屏幕</td>
+                                        <td class="py-3 px-4">1.74英寸AMOLED彩色屏幕，280×456分辨率，500nit亮度</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">尺寸与重量</td>
+                                        <td class="py-3 px-4">46.5×21.6×12.2mm，约27g（含腕带）</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">防水等级</td>
+                                        <td class="py-3 px-4">5ATM防水（50米防水）</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">电池</td>
+                                        <td class="py-3 px-4">230mAh，典型场景续航14天，重度使用场景续航8天</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">传感器</td>
+                                        <td class="py-3 px-4">光学心率传感器、血氧传感器、加速度传感器、陀螺仪、环境光传感器</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">健康监测</td>
+                                        <td class="py-3 px-4">24小时心率监测、血氧监测、睡眠监测、压力监测、女性健康管理</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">运动模式</td>
+                                        <td class="py-3 px-4">150+运动模式，包括跑步、游泳、骑行、登山、瑜伽等</td>
+                                    </tr>
+                                    <tr class="border-b border-neutral-200">
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">连接方式</td>
+                                        <td class="py-3 px-4">蓝牙5.2，支持与iOS 13.0及以上、Android 6.0及以上设备连接</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-3 px-4 bg-neutral-50 text-neutral-500">其他功能</td>
+                                        <td class="py-3 px-4">消息通知、闹钟、秒表、计时器、天气显示、找手机、NFC版支持公交卡/门禁卡功能</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- 用户评价预览 -->
+                    <div id="reviews">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">用户评价 (2543)</h2>
+                            <a href="#" class="text-primary hover:text-primary/80 font-medium flex items-center">
+                                查看全部评价 <i class="fa fa-angle-right ml-1"></i>
+                            </a>
+                        </div>
+                        <div class="flex items-center mb-6">
+                            <div class="mr-6">
+                                <div class="text-4xl font-bold text-primary mb-1">4.8</div>
+                                <div class="flex text-yellow-400">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-half-o"></i>
+                                </div>
+                                <div class="text-sm text-neutral-500 mt-1">基于2543条评价</div>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-sm text-neutral-500 w-12">5星</span>
+                                    <div class="flex-1 h-2 bg-neutral-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                    <span class="text-sm text-neutral-500 w-8 text-right">85%</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-sm text-neutral-500 w-12">4星</span>
+                                    <div class="flex-1 h-2 bg-neutral-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                    <span class="text-sm text-neutral-500 w-8 text-right">10%</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-sm text-neutral-500 w-12">3星</span>
+                                    <div class="flex-1 h-2 bg-neutral-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 3%"></div>
+                                    </div>
+                                    <span class="text-sm text-neutral-500 w-8 text-right">3%</span>
+                                </div>
+                                <div class="flex items-center mb-2">
+                                    <span class="text-sm text-neutral-500 w-12">2星</span>
+                                    <div class="flex-1 h-2 bg-neutral-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 1%"></div>
+                                    </div>
+                                    <span class="text-sm text-neutral-500 w-8 text-right">1%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-sm text-neutral-500 w-12">1星</span>
+                                    <div class="flex-1 h-2 bg-neutral-200 rounded-full mx-2">
+                                        <div class="h-2 bg-yellow-400 rounded-full" style="width: 1%"></div>
+                                    </div>
+                                    <span class="text-sm text-neutral-500 w-8 text-right">1%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 评价列表 -->
+                        <div class="space-y-6">
+                            <div class="border-b border-neutral-200 pb-6">
+                                <div class="flex items-center mb-3">
+                                    <img src="https://picsum.photos/50/50?random=20" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
+                                    <div class="ml-3">
+                                        <div class="font-medium">张三</div>
+                                        <div class="flex text-yellow-400 text-sm">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto text-sm text-neutral-500">2025-05-10</div>
+                                </div>
+                                <p class="text-neutral-700 mb-3">屏幕比上一代大了不少，显示很清晰，操作也很流畅。健康监测功能很全面，特别是睡眠监测很准确，帮我了解了自己的睡眠质量。续航也不错，充一次电可以用很久。</p>
+                                <div class="flex gap-2 mb-3">
+                                    <img src="https://p4mq.bmwwx.cn/N4fAA7" alt="用户上传图片" class="w-20 h-20 rounded-md object-cover">
+                                    <img src="https://p4mq.bmwwx.cn/CD4BHp" alt="用户上传图片" class="w-20 h-20 rounded-md object-cover">
+                                </div>
+                                <div class="flex items-center text-sm text-neutral-500">
+                                    <button class="flex items-center mr-4 hover:text-primary">
+                                        <i class="fa fa-thumbs-up mr-1"></i> 有用 (124)
+                                    </button>
+                                    <button class="flex items-center hover:text-primary">
+                                        <i class="fa fa-comment-o mr-1"></i> 回复
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="border-b border-neutral-200 pb-6">
+                                <div class="flex items-center mb-3">
+                                    <img src="https://picsum.photos/50/50?random=23" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
+                                    <div class="ml-3">
+                                        <div class="font-medium">李四</div>
+                                        <div class="flex text-yellow-400 text-sm">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto text-sm text-neutral-500">2025-05-08</div>
+                                </div>
+                                <p class="text-neutral-700 mb-3">小米手环性价比一直很高，这次9 Pro升级很明显。我主要用它来记录跑步数据，精准度很高，还能实时显示配速、心率等信息。NFC版很方便，刷公交地铁都不用掏手机了。唯一缺点是表带有点硬，希望后续能改进。</p>
+                                <div class="flex items-center text-sm text-neutral-500">
+                                    <button class="flex items-center mr-4 hover:text-primary">
+                                        <i class="fa fa-thumbs-up mr-1"></i> 有用 (87)
+                                    </button>
+                                    <button class="flex items-center hover:text-primary">
+                                        <i class="fa fa-comment-o mr-1"></i> 回复
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center mb-3">
+                                    <img src="https://picsum.photos/50/50?random=24" alt="用户头像" class="w-10 h-10 rounded-full object-cover">
+                                    <div class="ml-3">
+                                        <div class="font-medium">王五</div>
+                                        <div class="flex text-yellow-400 text-sm">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-half-o"></i>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto text-sm text-neutral-500">2025-05-05</div>
+                                </div>
+                                <p class="text-neutral-700 mb-3">买给父母用的，操作简单易懂，他们很容易上手。健康监测功能很实用，可以随时查看心率、血氧等数据，让我更放心。续航也很好，不用频繁充电。客服态度也很好，有问题都能及时解答。</p>
+                                <div class="flex items-center text-sm text-neutral-500">
+                                    <button class="flex items-center mr-4 hover:text-primary">
+                                        <i class="fa fa-thumbs-up mr-1"></i> 有用 (65)
+                                    </button>
+                                    <button class="flex items-center hover:text-primary">
+                                        <i class="fa fa-comment-o mr-1"></i> 回复
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="mt-6 px-6 py-2 border border-neutral-300 rounded-md text-neutral-700 hover:bg-neutral-50">
+                            查看全部2543条评价
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 底部版权声明 -->
+    <footer class="bg-neutral-800 text-neutral-400 py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">购物指南</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">注册与登录</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">购物流程</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">支付方式</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">配送方式</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">上门自提</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">211限时达</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">配送服务查询</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">海外配送</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">售后服务</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">售后政策</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">退款说明</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">服务网点</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">投诉与建议</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-white text-lg font-semibold mb-4">关于我们</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-white transition-colors">公司简介</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">加入我们</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">联系我们</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">隐私政策</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-neutral-700 pt-8 text-center text-sm">
+                <p>© 2025 小米科技有限责任公司 版权所有</p>
+                <p class="mt-2">京ICP备10046444号-15 京公网安备11010802027341号 京ICP证110507号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 商品图片切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            // 添加评价标签页点击事件
+            const reviewsTab = document.getElementById('reviews-tab');
+            if(reviewsTab) {
+                reviewsTab.addEventListener('click', function() {
+                    // 滚动到评价部分
+                    const reviewsSection = document.querySelector('[href="#reviews"]');
+                    if(reviewsSection) {
+                        reviewsSection.scrollIntoView({behavior: 'smooth'});
+                    }
+                });
+            }
+            
+            // 颜色选项与图片关联
+            const colorOptions = document.querySelectorAll('.color-option');
+            const mainImage = document.getElementById('main-image');
+            
+            // 颜色与图片路径映射
+            const colorImageMap = {
+                'black': './9 Prob.jpg',
+                'pink': './9 Prop.jpg',
+                'white': './9 Prow.jpg',
+                'cream': './9 Prornb.jpg'
+            };
+            
+            // 为颜色选项添加点击事件
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const color = this.dataset.color;
+                    const imagePath = colorImageMap[color];
+                    
+                    // 更新主图
+                    if (imagePath) {
+                        // 添加淡入淡出效果
+                        mainImage.style.opacity = 0;
+                        setTimeout(() => {
+                            mainImage.src = imagePath;
+                            mainImage.alt = `小米手环9 Pro - ${this.textContent.trim()}`;
+                            mainImage.style.opacity = 1;
+                        }, 300);
+                        
+                        // 更新颜色选项的选中状态
+                        colorOptions.forEach(opt => {
+                            opt.classList.remove('border-primary');
+                            opt.classList.add('border-neutral-200');
+                            
+                            const checkmark = opt.querySelector('.fa-check');
+                            if (checkmark) {
+                                checkmark.parentElement.remove();
+                            }
+                        });
+                        
+                        this.classList.remove('border-neutral-200');
+                        this.classList.add('border-primary');
+                        
+                        // 添加选中标记
+                        if (!this.querySelector('.fa-check')) {
+                            const checkmark = document.createElement('span');
+                            checkmark.className = 'absolute -bottom-1 -right-1 bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center';
+                            checkmark.innerHTML = '<i class="fa fa-check"></i>';
+                            this.appendChild(checkmark);
+                        }
+                    }
+                });
+            });
+            
+            // 缩略图点击切换主图
+            const thumbnails = document.querySelectorAll('.w-20.h-20.rounded-md');
+            
+            thumbnails.forEach(thumbnail => {
+                thumbnail.addEventListener('click', function() {
+                    // 移除所有选中状态
+                    thumbnails.forEach(thumb => {
+                        thumb.classList.remove('border-primary');
+                        thumb.classList.add('border-transparent');
+                    });
+                    
+                    // 添加当前选中状态
+                    this.classList.remove('border-transparent');
+                    this.classList.add('border-primary');
+                    
+                    // 更新主图
+                    const imagePath = this.querySelector('img').src;
+                    mainImage.style.opacity = 0;
+                    setTimeout(() => {
+                        mainImage.src = imagePath;
+                        mainImage.style.opacity = 1;
+                    }, 300);
+                });
+            });
+            
+            // 数量加减按钮
+            const minusBtn = document.querySelector('.fa-minus').parentElement;
+            const plusBtn = document.querySelector('.fa-plus').parentElement;
+            const quantityInput = document.querySelector('input[type="number"]');
+            
+            minusBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                if (currentValue > 1) {
+                    quantityInput.value = currentValue - 1;
+                }
+            });
+            
+            plusBtn.addEventListener('click', function() {
+                let currentValue = parseInt(quantityInput.value);
+                quantityInput.value = currentValue + 1;
+            });
+            
+            // 详情页标签页切换
+            const tabs = document.querySelectorAll('.border-b-2');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有选中状态
+                    tabs.forEach(t => {
+                        t.classList.remove('text-primary', 'border-primary');
+                        t.classList.add('text-neutral-500', 'hover:text-neutral-700');
+                    });
+                    
+                    // 添加当前选中状态
+                    this.classList.remove('text-neutral-500', 'hover:text-neutral-700');
+                    this.classList.add('text-primary', 'border-primary');
+                    
+                    // 这里可以添加切换内容的逻辑
+                });
+            });
+            
+            // 评价点赞功能
+            const likeButtons = document.querySelectorAll('.fa-thumbs-up').parentElement.parentElement;
+            likeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const countElement = this.querySelector('span');
+                    let count = parseInt(countElement.textContent);
+                    
+                    if (this.classList.contains('text-primary')) {
+                        countElement.textContent = count - 1;
+                        this.classList.remove('text-primary');
+                    } else {
+                        countElement.textContent = count + 1;
+                        this.classList.add('text-primary');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+<script>
+    // 确保这些函数在script标签内
+    function changeImage(element) {
+        const mainImage = document.getElementById('main-image');
+        const imgSrc = element.querySelector('img').src;
+        mainImage.src = imgSrc;
+        
+        // 更新缩略图边框样式
+        document.querySelectorAll('.w-20.h-20').forEach(thumb => {
+            thumb.classList.remove('border-primary');
+            thumb.classList.add('border-transparent');
+        });
+        element.classList.add('border-primary');
+        element.classList.remove('border-transparent');
+    }
+
+    function changeColor(element) {
+        const color = element.getAttribute('data-color');
+        let imgSrc = '';
+        
+        switch(color) {
+            case 'black':
+                imgSrc = './9 Prob.jpg';
+                break;
+            case 'pink':
+                imgSrc = './9 Prop.jpg';
+                break;
+            case 'white':
+                imgSrc = './9 Prow.jpg';
+                break;
+            case 'cream':
+                imgSrc = './9 Prornb.jpg';
+                break;
+        }
+        
+        document.getElementById('main-image').src = imgSrc;
+        
+        // 更新颜色按钮样式
+        document.querySelectorAll('.color-option').forEach(btn => {
+            btn.classList.remove('border-primary');
+            btn.classList.add('border-neutral-200');
+        });
+        element.classList.add('border-primary');
+        element.classList.remove('border-neutral-200');
+    }
+</script>
