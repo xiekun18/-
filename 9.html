@@ -597,5 +597,16 @@
             });
         }
     </script>
+<!-- 在 </body> 标签之前添加以下脚本 -->
+<script>
+    window.onload = function() {
+        // 获取黑色手环对应的缩略图元素
+        const blackThumbnail = document.querySelector('div[data-color="black"]');
+        if (blackThumbnail) {
+            // 调用 changeImage 函数
+            changeImage(blackThumbnail);
+        }
+    };
+</script>
 </body>
 </html>
